@@ -23,118 +23,117 @@ In a single query, perform the following operations and generate a new table in 
 •	Generate a new avg_transaction column as the sales value divided by transactions rounded to 2 decimal places for each record
 
 ## Task 1: convert the week_date to a DATE format
--- First convert select the whole data to check how the date is formatted
-***
-
+**SQL Query to check `DATE` Format**
 ```sql
 
 SELECT *
 FROM data_mart.weekly_sales;
 
 ```
-
 ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/9809f12e-5177-4782-b9a7-0ba3f171d039)
 
--- Then we convert week_date column to date using this formula;
-***
+ **Convert `week_date` column to Date**
 ```sql
 SELECT
       week_date :: date
 FROM data_mart.weekly_sales;
 ```
-
 ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/64396e09-e425-4b99-96d3-06fb8e74f44e)
 
--- Add week_number as second column, month_number  as third column and calendar_year as fourth column
-***
-```sql
-SELECT 
-       week_date :: DATE,
-       EXTRACT(WEEK FROM week_date :: DATE) AS week_number,
-       EXTRACT(MONTH FROM week_date :: DATE) AS month_number,
-       EXTRACT(YEAR FROM week_date :: DATE) AS calendar_year
-FROM 
-     data_mart.weekly_sales;
-```
+**Extracting Week, Month, and Year Information from `week_date`**
 
+```sql
+-- Add `week_number` as the second column, `month_number` as the third column, and `calendar_year` as the fourth column
+SELECT 
+    week_date::DATE,
+    EXTRACT(WEEK FROM week_date::DATE) AS week_number,
+    EXTRACT(MONTH FROM week_date::DATE) AS month_number,
+    EXTRACT(YEAR FROM week_date::DATE) AS calendar_year
+FROM 
+    data_mart.weekly_sales;
+```
 ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/ee0b433f-fdc5-429e-b831-d032a6aa1f32)
 
---Add a new column called age_band after the original segment column using the following mapping on the number inside the segment value
+**Adding `age_band` and `demographic` Columns**
 
---Add a new demographic column using the following mapping for the first letter in the segment values
-***
 ```sql
+-- Add a new column called `age_band` based on segment values
+-- Add a new `demographic` column based on the first letter of segment values
 SELECT 
-       region,
-       CASE WHEN segment = 'null' THEN 'unknown'
-	                                ELSE segment
-                                   END AS segment,
-       COALESCE(CASE WHEN segment LIKE '%1' THEN 'Young Adults'
-	                   WHEN segment LIKE '%2' THEN 'Middle Aged'
-		                 WHEN segment LIKE '%3'
-	                     OR segment LIKE '%4' THEN 'Retirees'
-                                            ELSE NULL
-                                            END, 'unknown') AS age_band,
-        COALESCE(CASE WHEN segment LIKE 'F%' THEN 'Families'
-                      WHEN segment LIKE 'C%' THEN 'Couples'
-                                             ELSE NULL
-                                             END, 'unknown') AS demographic
+    region,
+    CASE WHEN segment = 'null' THEN 'unknown'
+        ELSE segment
+    END AS segment,
+    COALESCE(
+        CASE WHEN segment LIKE '%1' THEN 'Young Adults'
+             WHEN segment LIKE '%2' THEN 'Middle Aged'
+             WHEN segment LIKE '%3' OR segment LIKE '%4' THEN 'Retirees'
+             ELSE NULL
+        END, 'unknown') AS age_band,
+    COALESCE(
+        CASE WHEN segment LIKE 'F%' THEN 'Families'
+             WHEN segment LIKE 'C%' THEN 'Couples'
+             ELSE NULL
+        END, 'unknown') AS demographic
 FROM data_mart.weekly_sales;
 ```
-
 ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/93462862-3fd2-443d-98bf-bc6a9ea734c6)
 
--- Ensure all null string values with an "unknown" string value in the original segment column as well as the new age_band and demographic columns
-**All NULL** was changed to **unknown** in the case statements
-
-Generate a new avg_transaction column as the sales value divided by transactions rounded to 2 decimal places for each record
-***
+-- Ensure all `null` string values with an `unknown` string value in the original segment column as well as the new `age_band` and `demographic` columns
 ```sql
-SELECT 
-      ROUND((sales / transactions), 2) AS avg_transactions
-FROM 
-      data_mart.weekly_sales;
+-- Replacing `null` Values with `unknown`
+All `null` values were changed to `unknown` in the `segment`, `age_band`, and `demographic` columns within the SQL query using `CASE` statements.
 ```
+**Generate a new `avg_transaction` column as the `sales` value divided by `transactions` rounded to 2 decimal places for each record**
 
+```sql
+-- Generate a new `avg_transaction` column as the result of dividing `sales` by `transactions` rounded to 2 decimal places
+SELECT 
+    ROUND((sales / transactions), 2) AS avg_transactions
+FROM 
+    data_mart.weekly_sales;
+```
 ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/378cf6af-f697-4321-9a26-e8c5db35cdc1)
 
---As stated, create a new table named clean_weekly_sales
-***
+## Creating the `clean_weekly_sales` Table
+
 ```sql
+-- Create a new table named `clean_weekly_sales` and populate it with cleaned data
 DROP TABLE IF EXISTS clean_weekly_sales;
-CREATE TABLE clean_weekly_sales
-AS
+CREATE TABLE clean_weekly_sales AS
 SELECT 
-       week_date :: DATE,
-	     EXTRACT(WEEK FROM week_date :: DATE) AS week_number,
-       EXTRACT(MONTH FROM week_date :: DATE) AS month_number,
-	     EXTRACT(YEAR FROM week_date :: DATE) AS calendar_year,
-	     region,
-	     platform,
-	     CASE WHEN segment = 'null' THEN 'unknown'
-	                                ELSE segment 
-			                             END AS segment,
-	     COALESCE(CASE WHEN segment LIKE '%1' THEN 'Young Adults'
-	                   WHEN segment LIKE '%2' THEN 'Middle Aged'
-			               WHEN segment LIKE '%3'
-			                 OR segment LIKE '%4' THEN 'Retirees'
-			                                      ELSE NULL
-			                                       END, 'unknown') AS age_band,
-	     COALESCE(CASE WHEN segment LIKE 'F%' THEN 'Families'
-		                 WHEN segment LIKE 'C%' THEN 'Couples'
-			                                      ELSE NULL
-			                                       END, 'unknown') AS demographic,
-	     customer_type,
-	     transactions,
-	     sales,
-       ROUND((sales / transactions), 2) AS avg_transactions
+    week_date::DATE,
+    EXTRACT(WEEK FROM week_date::DATE) AS week_number,
+    EXTRACT(MONTH FROM week_date::DATE) AS month_number,
+    EXTRACT(YEAR FROM week_date::DATE) AS calendar_year,
+    region,
+    platform,
+    CASE WHEN segment = 'null' THEN 'unknown'
+         ELSE segment
+    END AS segment,
+    COALESCE(
+        CASE WHEN segment LIKE '%1' THEN 'Young Adults'
+             WHEN segment LIKE '%2' THEN 'Middle Aged'
+             WHEN segment LIKE '%3' OR segment LIKE '%4' THEN 'Retirees'
+             ELSE NULL
+        END, 'unknown') AS age_band,
+    COALESCE(
+        CASE WHEN segment LIKE 'F%' THEN 'Families'
+             WHEN segment LIKE 'C%' THEN 'Couples'
+             ELSE NULL
+        END, 'unknown') AS demographic,
+    customer_type,
+    transactions,
+    sales,
+    ROUND((sales / transactions), 2) AS avg_transactions
 FROM data_mart.weekly_sales;
 ```
---Check the newly table created
-***
+## Checking the `clean_weekly_sales` Table
+
 ```sql
+-- View the contents of the newly created `clean_weekly_sales` table
 SELECT 
-       *
+    *
 FROM 
     clean_weekly_sales;
 ```
