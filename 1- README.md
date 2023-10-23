@@ -13,9 +13,9 @@ Danny needs your help to quantify the impact of this change on the sales perform
 
 ## Business Question
 The key business question he wants you to help him answer are the following:
-•	What was the quantifiable impact of the changes introduced in June 2020?
-•	Which platform, region, segment and customer types were the most impacted by this change?
-•	What can we do about future introduction of similar sustainability updates to the business to minimise impact on sales?
+- What was the quantifiable impact of the changes introduced in June 2020?
+- Which platform, region, segment and customer types were the most impacted by this change?
+- What can we do about future introduction of similar sustainability updates to the business to minimise impact on sales?
 
 ## Available Data
 A single table: data_mart.weekly_sales
@@ -38,6 +38,7 @@ The schema used for this project was copied from the page and pasted in my Postg
 
 ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/594ae1e6-1b6a-44cb-a08c-93afd64adcd1)
 
-
+## Solutions
+- [2 - Data Cleansing Steps]
 
 
