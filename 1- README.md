@@ -40,6 +40,6 @@ The schema used for this project was copied from the page and pasted in my Postg
 
 ## Solutions
 - [2 - Data Cleansing Steps](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/blob/main/2%20-%20Data%20Cleansing%20Steps.md)
-- [3 - Data Exploration]
-- [4 - Before & After Analysis]
-- [5 - Bonus Question]
+- [3 - Data Exploration](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/blob/main/3%20-%20Data%20Exploration.md)
+- [4 - Before & After Analysis](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/blob/main/4%20-%20Before%20%26%20After%20Analysis.md)
+- [5 - Bonus Question](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/blob/main/5%20-%20Bonus%20Question.md)
