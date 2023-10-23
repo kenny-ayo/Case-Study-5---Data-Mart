@@ -39,6 +39,7 @@ The schema used for this project was copied from the page and pasted in my Postg
 ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/594ae1e6-1b6a-44cb-a08c-93afd64adcd1)
 
 ## Solutions
-- [2 - Data Cleansing Steps]
-
-
+- [2 - Data Cleansing Steps](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/blob/main/2%20-%20Data%20Cleansing%20Steps.md)
+- [3 - Data Exploration]
+- [4 - Before & After Analysis]
+- [5 - Bonus Question]
