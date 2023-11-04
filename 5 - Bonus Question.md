@@ -12,6 +12,7 @@ Which areas of the business have the highest negative impact in sales metrics pe
   ![12 weeks bus areas](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/787675af-30e1-43eb-a532-eebd4c178e3b)
 
 Based on the chart, it is shown platform is the only business area that had a positve impact as result of the change 12 weeks before and after the changes in packaging.
+Region is the business area with the highest negative impact in sales metrics peformance.
 
 
   
