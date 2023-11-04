@@ -21,7 +21,8 @@ The key business question he wants you to help him answer are the following:
 A single table: data_mart.weekly_sales
 The Entity Relationship Diagram is shown below with the data types
 
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/edb79f79-dad6-4d47-9fb1-b8844d44e2fa)
+![case-study-5-erd](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/965b707d-ff98-4eb8-9405-d1eaa659117c)
+
 
 ## Column Dictionary
 1.	Data Mart has international operations using a multi-region strategy
@@ -32,11 +33,11 @@ The Entity Relationship Diagram is shown below with the data types
 ## Example Rows
 10 random rows are shown in the table output below from data_mart.weekly_sales:
 
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/923d67ff-fd75-43a1-b6a9-71485158584c)
+![189491192-978f144f-03b6-4dce-b69b-342e212e48e2](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/5a41a4df-b098-49cc-a422-d9b38118fb2d)
 
 The schema used for this project was copied from the page and pasted in my Postgresql
 
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/594ae1e6-1b6a-44cb-a08c-93afd64adcd1)
+![Datamart schema](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/4e06b3a0-bf4c-490d-8172-a6cf984e5083)
 
 ## Solutions
 - [2 - Data Cleansing Steps](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/blob/main/2%20-%20Data%20Cleansing%20Steps.md)
