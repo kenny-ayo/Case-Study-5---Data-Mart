@@ -161,5 +161,6 @@ FROM (
     GROUP BY calendar_year
 ) sub;
 ```
-![a4](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/30b0bc3d-4ad1-4ba4-abee-a389e630b5ca)
+![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/3209df12-bce4-44c2-b615-ce9e7597e990)
+
 
