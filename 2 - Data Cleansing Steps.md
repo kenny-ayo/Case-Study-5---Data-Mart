@@ -11,12 +11,13 @@ In a single query, perform the following operations and generate a new table in 
 
 •	Add a new column called age_band after the original segment column using the following mapping on the number inside the segment value
 
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/36f8f539-2da9-4f1f-96e9-87ed401fad99)
+![age_band](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/dfc45bf1-3bd3-46a4-90fd-3e0c863ac4fc)
+
 
 
 •	Add a new demographic column using the following mapping for the first letter in the segment values
 
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/fbb0a459-e20b-4831-a260-6f3636536a2d)
+![segment](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/8255ba6b-c3fa-4533-86a0-836c08f565c3)
 
 
 •	Ensure all null string values with an "unknown" string value in the original segment column as well as the new age_band and demographic columns
@@ -30,7 +31,8 @@ SELECT *
 FROM data_mart.weekly_sales;
 
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/9809f12e-5177-4782-b9a7-0ba3f171d039)
+![Screenshot 2023-10-21 211546](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/e995c3ea-5b4a-47da-85bb-557f94c76230)
+
 
  **Convert `week_date` column to Date**
 ```sql
@@ -38,7 +40,8 @@ SELECT
       week_date :: date
 FROM data_mart.weekly_sales;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/64396e09-e425-4b99-96d3-06fb8e74f44e)
+![week_date date](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/58e2c94a-df00-4299-ba5b-9eab3e37a896)
+
 
 **Extracting Week, Month, and Year Information from `week_date`**
 
@@ -52,7 +55,7 @@ SELECT
 FROM 
     data_mart.weekly_sales;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/ee0b433f-fdc5-429e-b831-d032a6aa1f32)
+![week,month,year](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/2977b560-ff5f-4c2f-90b5-5462399b803a)
 
 **Adding `age_band` and `demographic` Columns**
 
@@ -77,7 +80,8 @@ SELECT
         END, 'unknown') AS demographic
 FROM data_mart.weekly_sales;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/93462862-3fd2-443d-98bf-bc6a9ea734c6)
+![agebanddemographic](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/d595809a-c875-49d5-9fe0-af77aaa61c02)
+
 
 -- Ensure all `null` string values with an `unknown` string value in the original segment column as well as the new `age_band` and `demographic` columns
 ```sql
@@ -93,7 +97,8 @@ SELECT
 FROM 
     data_mart.weekly_sales;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/378cf6af-f697-4321-9a26-e8c5db35cdc1)
+![avg_trans](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/8d8c6e41-fd6d-4a0b-8804-e67b5f7cf6d3)
+
 
 ## Creating the `clean_weekly_sales` Table
 
@@ -138,5 +143,6 @@ FROM
     clean_weekly_sales;
 ```
 Output:
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/a8fe32d8-3560-4ea9-9dad-98eb3fa7805b) ![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/09bf30fe-738c-458e-af46-7699f6df3b28)
+![output](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/0ffe05a8-3634-48d0-a511-f326ed2bf785)
+![output2](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/84deeb45-5317-42ce-8921-c378416cb638)
 
