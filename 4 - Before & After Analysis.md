@@ -23,7 +23,8 @@ FROM
 WHERE
     week_date = '2020-06-15';
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/9101445c-4fc4-44af-ac54-955ab09331b8)
+![a1](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/d5f02f59-0510-425e-be63-8223919d7d05)
+
 
 **This query identifies the `week_number` associated with the date `2020-06-15` in the `clean_weekly_sales` dataset, which is used as a reference point for calculating the `total sales` for the 4 weeks before and after this `date`.**
 
@@ -53,7 +54,8 @@ FROM (
     FROM before_after_packaging
 ) sub;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/4eed13ca-0b75-4335-96fa-fd8ee805e784)
+![a2](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/35e0ab64-a16c-4442-b30a-7587ab4489bc)
+
 
 ## 2. What about the entire 12 weeks before and after?
 
@@ -85,7 +87,7 @@ FROM (
     FROM before_after_packaging
 ) sub;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/03d84483-ab94-40e2-96f8-08c91b10c5ef)
+![a3](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/70d16e04-9f96-491c-9ba4-9443e93e7f4a)
 
 ## 3. How do the sale metrics for these 2 periods before and after compare with the previous years in 2018 and 2019?
 
@@ -123,7 +125,7 @@ FROM (
         calendar_year
 ) sub;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/e90f2fad-141c-466c-ad32-a336d8a29a1c)
+![a3b](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/536f7d38-2d3e-490c-b36d-37043876caa2)
 
 **Evaluate sales metrics for the 12 weeks before and after the specified periods in `2019` and `2018`.**
 
@@ -159,5 +161,5 @@ FROM (
     GROUP BY calendar_year
 ) sub;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/23c0d50c-36eb-4ea4-8ac0-71c1ee5870f4)
+![a4](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/30b0bc3d-4ad1-4ba4-abee-a389e630b5ca)
 
