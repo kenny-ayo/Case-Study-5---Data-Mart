@@ -21,7 +21,8 @@ SELECT
 FROM
     clean_weekly_sales;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/ca6c3172-92e2-4507-b9e9-336bdd0054b5)
+![Q1](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/9ff86e99-b812-400e-be34-f15482378f17)
+
 
 **2. What range of `week numbers` are missing from the dataset?**
 
@@ -42,7 +43,8 @@ WHERE
 
 -- This query produced 27 outputs, the missing week include, week 1 - week 12 and week 37 - week 52
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/a9302f58-068c-42f2-b0b2-0d1188694f4f)  
+![Q2](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/d5fcc838-f26f-4d5f-b71d-6034f5fc72a2)
+  
 
 **3. How many total `transactions` were there for each `year` in the dataset?**
 
@@ -58,7 +60,8 @@ GROUP BY
 ORDER BY 
     calendar_year;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/43d459a4-2dda-4765-a325-16968e3fb895)
+![q3](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/b0e7447c-b37d-4855-91ad-0a01d6d787af)
+
 
 **4. What is the `total sales` for each `region` for each `month`?**
 
@@ -78,7 +81,8 @@ ORDER BY
     month_number,
     region;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/590542e2-d51d-4d1c-81b1-e6a127ee388b)
+![q4](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/5cfd30f9-31a0-46a9-a8f9-54cc229f3f0f)
+
 
 **5. What is the `total count of transactions` for each `platform`***
 
@@ -94,7 +98,7 @@ GROUP BY
 ORDER BY
     total_count_of_trans DESC;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/761d61e0-d748-4d04-a1ea-9c743fd298b9)
+![q5](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/55735df0-3101-4b33-8eb7-cea59d1fd1d9)
 
 **6. What is the percentage of `sales` for Retail vs Shopify for each `month`?**
 ```sql
@@ -122,7 +126,8 @@ GROUP BY
     calendar_year,
     month_number;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/4c5ba0c5-1e18-426e-a12c-54c36da93439)
+![q6](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/5930ee74-6855-459a-8cf6-6cd660532b1b)
+
 
 **7. What is the percentage of `sales` by `demographic` for each `year` in the dataset?***
 
@@ -148,7 +153,8 @@ FROM
 GROUP BY 
     calendar_year;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/5b573baa-b7a5-4fce-9d5b-e42322a10577)
+![q7](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/5a0b01e2-1216-468f-92bd-69165bfa9bb9)
+
 
 **8. Which `age_band` and `demographic` values contribute the most to Retail `sales`?***
 
@@ -171,7 +177,7 @@ GROUP BY
 ORDER BY 
     retail_sales DESC;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/e324793b-8850-4342-a2db-e3dc72b9fd55)
+![q8a](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/100f0532-6ac5-4126-b199-a556c002d1f4)
 
 **Alternative Approach: Identifying Top Contributors to `Retail Sales`**
 
@@ -206,7 +212,7 @@ ORDER BY
     retail_sales DESC;
 --  It uses a common table expression (CTE) and the RANK() function to determine the contribution rank, providing a different perspective on the same analysis.
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/8be0a347-0342-4ebb-bfec-ea13213b282c)
+![q8b](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/01e462ce-0c67-47a9-bdb2-a84ef7373a84)
 
 **9. Can we use the `avg_transaction` column to find the average transaction size for each `year` for Retail vs Shopify? If not - how would you calculate it instead?**
 
@@ -226,6 +232,6 @@ ORDER BY
     Calendar_year,
     platform;
 ```
-![image](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/6a353810-d69f-4d88-9fa7-229af14e0948)
+![q10](https://github.com/kenny-ayo/Case-Study-5---Data-Mart/assets/92790075/4f880aad-edb0-47e6-9263-7c9bbd121c1d)
 
 **The `correct_avg_trans_size` is a more accurate measure because it divides the `total sales` by the `total transactions`. In contrast, the `incorrect_avg_trans_size` uses the `avg_transactions` column, resulting in an average of averages, which may not accurately represent the true average transaction size.**
